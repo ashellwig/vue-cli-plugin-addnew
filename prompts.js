@@ -30,4 +30,14 @@ module.exports = [{
   message: 'What is the name of the new view?',
   when: isView,
   default: 'NewView'
+}, {
+  name: 'componentFiletype',
+  type: 'list',
+  choices: [{
+    name: 'Javascript',
+    value: 'js'
+  }, {
+    name: 'Vue',
+    value: 'vue'
+  }]
 }]
