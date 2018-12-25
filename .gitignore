@@ -1,0 +1,7 @@
+**/node_modules/**
+**.log
+**.error
+**.bak
+.env
+.env.*
+!.env.example
