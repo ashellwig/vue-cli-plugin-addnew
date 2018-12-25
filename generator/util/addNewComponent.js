@@ -33,9 +33,9 @@ function addImports (api, opts) {
     : `./src/components/${compName}.vue`
 
   helpers.updateFile(api, api.entryFile, lines => {
-    const vueImportIndex = lines.findIndex(line => line.match(/^import Vue/))
+    const lastImportIndex = lines.findIndex(line => line.match(/^import/))
 
-    lines.splice(vueImportIndex + 1, 0, `import '${componentTarget}'`)
+    lines.splice(lastImportIndex + 1, 0, `import '${componentTarget}'`)
 
     return lines
   })

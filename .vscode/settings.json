@@ -25,5 +25,6 @@
       "html"
     ]
   },
-  "npm.packageManager": "yarn"
+  "npm.packageManager": "yarn",
+  "vetur.validation.script": false
 }

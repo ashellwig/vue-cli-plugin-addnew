@@ -4,6 +4,10 @@
   "description": "Adds [component || view] to project",
   "main": "index.js",
   "author": "Ashton S. Hellwig <ahellwig.dev@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashellwig/vue-cli-plugin-addnew.git"
+  },
   "license": "MIT",
   "private": false,
   "keywords": [
