@@ -4,6 +4,7 @@
     "configFile": ".eslintrc.js"
   },
   "javascript.format.enable": false,
+  "eslint.packageManager": "yarn",
   "javascript.validate.enable": false,
   "typescript.format.enable": false,
   "typescript.check.npmIsInstalled": false,
@@ -11,5 +12,18 @@
   "typescript.validate.enable": false,
   "[javascript]": {
     "editor.formatOnSave": true
-  }
+  },
+  "editor.formatOnSave": true,
+  "json.format.enable": true,
+  "beautify.language": {
+    "css": [
+      "css",
+      "scss"
+    ],
+    "html": [
+      "htm",
+      "html"
+    ]
+  },
+  "npm.packageManager": "yarn"
 }
