@@ -36,6 +36,7 @@ function addImports (api, opts) {
     const lastImportIndex = lines.findIndex(line => line.match(/^import/))
 
     lines.splice(lastImportIndex + 1, 0, `import '${componentTarget}'`)
+    lines.splice(lastImportIndex + 3, 0, `Vue.component({'${compName}': ${compName}})`)
 
     return lines
   })
