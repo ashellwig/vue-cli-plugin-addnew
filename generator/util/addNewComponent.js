@@ -1,24 +1,24 @@
 const helpers = require('./helpers')
 
 function renderFiles (api, opts) {
-  const pluginFilename = api.hasPlugin('typescript') ? 'addnew.ts' : 'addnew.js'
-  const pluginSourceFilename = 'addnew.js'
-  api.render({
-    [`./src/plugins/${pluginFilename}`]: `../templates/default/src/plugins/${pluginSourceFilename}`
-  }, {
-    ...opts,
-    typescript: api.hasPlugin('typescript')
-  })
+  // const pluginFilename = api.hasPlugin('typescript') ? 'addnew.ts' : 'addnew.js'
+  // const pluginSourceFilename = 'addnew.js'
+  // api.render({
+  //   [`./src/plugins/${pluginFilename}`]: `../templates/default/src/plugins/${pluginSourceFilename}`
+  // }, {
+  //   ...opts,
+  //   typescript: api.hasPlugin('typescript')
+  // })
 
   const compName = opts.componentName
-  const compFiletype = opts.compFiletype
+  const compFiletype = opts.componentFiletype
 
   const componentTarget = compFiletype === 'js'
     ? `./src/components/${compName}.js`
     : `./src/components/${compName}.vue`
 
   const files = {
-    [componentTarget]: `../template/default/src/components/${compFiletype}/index.js`
+    [componentTarget]: `../templates/default/src/components/${compFiletype}/index.${compFiletype}`
   }
 
   api.render(files, opts)
