@@ -23,6 +23,8 @@
     "editor.formatOnSave": false
   },
   "vetur.format.defaultFormatter.js": "none",
+  "vetur.validation.template": false,
+  "vetur.format.defaultFormatter.html": "none",
   "editor.formatOnSave": true,
   "json.format.enable": true,
   "beautify.language": {

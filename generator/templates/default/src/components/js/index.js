@@ -1,6 +1,6 @@
 const <%= options.componentName %> = {
   template: `
-    <btn :disabled="isDisabled"><%= options.componentName %></btn>
+    <button :disabled="isDisabled"><%= options.componentName %></button>
   `,
 
   name: '<%= options.componentName %>',
