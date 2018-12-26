@@ -3,6 +3,15 @@
   "eslint.options": {
     "configFile": ".eslintrc.js"
   },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "ejs"
+  ],
+  "eslint.workingDirectories": [
+    "."
+  ],
   "javascript.format.enable": false,
   "eslint.packageManager": "yarn",
   "javascript.validate.enable": false,
@@ -11,8 +20,9 @@
   "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.validate.enable": false,
   "[javascript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false
   },
+  "vetur.format.defaultFormatter.js": "none",
   "editor.formatOnSave": true,
   "json.format.enable": true,
   "beautify.language": {

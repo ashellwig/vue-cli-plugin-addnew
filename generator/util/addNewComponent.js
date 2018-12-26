@@ -35,8 +35,19 @@ function addImports (api, opts) {
   helpers.updateFile(api, api.entryFile, lines => {
     const lastImportIndex = lines.findIndex(line => line.match(/^import/))
 
-    lines.splice(lastImportIndex + 1, 0, `import '${componentTarget}'`)
-    lines.splice(lastImportIndex + 3, 0, `Vue.component({'${compName}': ${compName}})`)
+    lines.splice(lastImportIndex + 1, 0, `import ${compName} from '${componentTarget}'`)
+
+    return lines
+  })
+}
+
+function registerNewComponents (api, opts) {
+  const compName = opts.componentName
+
+  helpers.updateFile(api, api.entryFile, lines => {
+    const vueConfigProdTip = lines.findIndex(line => line.match(/^Vue\.config\.productionTip/))
+
+    lines.splice(vueConfigProdTip - 1, 0, `Vue.component('${compName}', ${compName})`)
 
     return lines
   })
@@ -44,5 +55,6 @@ function addImports (api, opts) {
 
 module.exports = {
   addImports,
+  registerNewComponents,
   renderFiles
 }

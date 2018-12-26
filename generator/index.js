@@ -11,6 +11,7 @@ module.exports = (api, opts) => {
   api.onCreateComplete(() => {
     if (opts.action === 'addNewComponent') {
       addNewComponent.addImports(api, opts)
+      addNewComponent.registerNewComponents(api, opts)
     } else {
       addNewView.addImports(api, opts)
     }

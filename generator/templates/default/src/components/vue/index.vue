@@ -3,14 +3,13 @@
 </template>
 
 <script>
-export default {
-  <%_ if (options.componentName) { _%>
-  name: <%= options.componentName %>,
-  <%_ } _%>
-  data () {
-    return {
-      isDisabled: true
+  /* eslint-disable */
+  export default {
+    name: '<%= options.componentName %>',
+    data() {
+      return {
+        isDisabled: true
+      }
     }
   }
-}
 </script>
