@@ -5,6 +5,3 @@
 .env
 .env.*
 !.env.example
-
-
-vue.config.js
