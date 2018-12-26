@@ -28,14 +28,14 @@ function addImports (api, opts) {
   const compName = opts.componentName
   const compFiletype = opts.compFiletype
 
-  const componentTarget = compFiletype === 'js'
-    ? `./src/components/${compName}.js`
-    : `./src/components/${compName}.vue`
+  const importLocation = compFiletype === 'js'
+    ? `./components/${compName}`
+    : `./components/${compName}.vue`
 
   helpers.updateFile(api, api.entryFile, lines => {
     const lastImportIndex = lines.findIndex(line => line.match(/^import/))
 
-    lines.splice(lastImportIndex + 1, 0, `import ${compName} from '${componentTarget}'`)
+    lines.splice(lastImportIndex + 1, 0, `import ${compName} from '${importLocation}'`)
 
     return lines
   })
@@ -47,7 +47,7 @@ function registerNewComponents (api, opts) {
   helpers.updateFile(api, api.entryFile, lines => {
     const vueConfigProdTip = lines.findIndex(line => line.match(/^Vue\.config\.productionTip/))
 
-    lines.splice(vueConfigProdTip - 1, 0, `Vue.component('${compName}', ${compName})`)
+    lines.splice(vueConfigProdTip + 1, 0, `Vue.component('${compName}', ${compName})`)
 
     return lines
   })
