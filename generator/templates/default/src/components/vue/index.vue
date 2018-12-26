@@ -1,5 +1,5 @@
 <template>
-  <v-btn disabled="isDisabled"><%= options.componentName %></v-btn>
+  <btn disabled="isDisabled"><%= options.componentName %></btn>
 </template>
 
 <script>

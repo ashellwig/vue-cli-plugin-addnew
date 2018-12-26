@@ -1,15 +1,6 @@
 const helpers = require('./helpers')
 
 function renderFiles (api, opts) {
-  // const pluginFilename = api.hasPlugin('typescript') ? 'addnew.ts' : 'addnew.js'
-  // const pluginSourceFilename = 'addnew.js'
-  // api.render({
-  //   [`./src/plugins/${pluginFilename}`]: `../templates/default/src/plugins/${pluginSourceFilename}`
-  // }, {
-  //   ...opts,
-  //   typescript: api.hasPlugin('typescript')
-  // })
-
   const compName = opts.componentName
   const compFiletype = opts.componentFiletype
 
