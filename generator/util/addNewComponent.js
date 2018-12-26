@@ -26,7 +26,7 @@ function renderFiles (api, opts) {
 
 function addImports (api, opts) {
   const compName = opts.componentName
-  const compFiletype = opts.compFiletype
+  const compFiletype = opts.componentFiletype
 
   const importLocation = compFiletype === 'js'
     ? `./components/${compName}`
