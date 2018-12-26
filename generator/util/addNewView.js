@@ -6,7 +6,7 @@ function renderFiles (api, opts) {
   const viewTarget = `./src/views/${viewName}.vue`
 
   const files = {
-    [viewTarget]: `../template/default/src/views/index.vue`
+    [viewTarget]: `../templates/default/src/views/index.vue`
   }
 
   api.render(files, opts)
