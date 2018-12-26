@@ -6,7 +6,7 @@ function renderFiles (api, opts) {
   const viewTarget = `./src/views/${viewName}.vue`
 
   const files = {
-    [viewTarget]: `../template/default/src/views/index.js`
+    [viewTarget]: `../template/default/src/views/index.vue`
   }
 
   api.render(files, opts)
@@ -19,7 +19,7 @@ function addImports (api, opts) {
   helpers.updateFile(api, api.entryFile, lines => {
     const lastImportIndex = lines.findIndex(line => line.match(/^import Vue/))
 
-    lines.splice(lastImportIndex + 1, 0, `import ${viewName} from '${viewTarget}'`)
+    lines.splice(lastImportIndex + 1, 0, `import ${viewName} from '${viewTarget}.vue'`)
 
     return lines
   })
