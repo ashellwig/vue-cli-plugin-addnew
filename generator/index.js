@@ -8,12 +8,19 @@ module.exports = (api, opts) => {
     addNewView.renderFiles(api, opts)
   }
 
+  const fs = require('fs')
+  const routerPath = api.resolve('./src/router.js')
+  opts.router = fs.existsSync(routerPath)
+
   api.onCreateComplete(() => {
     if (opts.action === 'addNewComponent') {
       addNewComponent.addImports(api, opts)
       addNewComponent.registerNewComponents(api, opts)
     } else {
       addNewView.addImports(api, opts)
+      if (opts.router) {
+        addNewView.addPathToRouter(api, opts)
+      }
     }
   })
 }

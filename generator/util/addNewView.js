@@ -35,14 +35,14 @@ function addPathToRouter (api, opts) {
 
   if (opts.router) {
     helpers.updateFile(api, routerPath, lines => {
-      const lastImportIndex = lines.findIndex(line => lines.match(/^import/))
+      const lastImportIndex = lines.findIndex(line => line.match(/^import/))
       const lastRoute = lines.findIndex(line => line.match(/^routes: \[/))
 
       lines.splice(lastImportIndex + 1, 0, `
-      const ${viewName}Route = {
-        path: ${viewPath},
-        name: ${viewName},
-        component: viewName
+      const ${viewName}Route = {\n
+        \tpath: ${viewPath},\n
+        \tname: ${viewName},\n
+        \tcomponent: viewName\n
       }`)
 
       lines.splice(lastRoute + 1, 0, `${viewName}Route`)
