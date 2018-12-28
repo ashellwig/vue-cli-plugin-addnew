@@ -29,12 +29,12 @@ function addImports (api, opts) {
 function addPathToRouter (api, opts) {
   const viewName = opts.viewName
   const routerPath = helpers.getRouterFile(api, opts)
-  const replaceRegex = `  routes: [{\n    name: '${viewName}',\n    path: '',\n    component: ${viewName}\n  },`
+  const replaceRegex = `}, {\n    name: '${viewName}',\n    path: '',\n    component: ${viewName}`
 
   helpers.updateFile(api, routerPath, lines => {
-    const lastRoute = lines.findIndex(line => line.match(/routes: \[\{/))
+    const lastRoute = lines.findIndex(line => line.match(/component: *.*\n*.*/))
 
-    lines.splice(lastRoute, 0, replaceRegex)
+    lines.splice(lastRoute + 1, 0, replaceRegex)
 
     return lines
   })
