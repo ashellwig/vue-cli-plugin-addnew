@@ -34,7 +34,9 @@ function addPathToRouter (api, opts) {
   helpers.updateFile(api, routerPath, lines => {
     const lastRoute = lines.findIndex(line => line.match(/routes: \[\{/))
 
-    lines.replace(lastRoute, replaceRegex)
+    lines.splice(lastRoute, 0, replaceRegex)
+
+    return lines
   })
 }
 
