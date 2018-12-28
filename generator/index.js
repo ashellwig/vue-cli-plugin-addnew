@@ -17,8 +17,10 @@ module.exports = (api, opts) => {
       addNewComponent.addImports(api, opts)
       addNewComponent.registerNewComponents(api, opts)
     } else {
-      addNewView.addImports(api, opts)
-      if (opts.router) {
+      addNewView.renderFiles(api, opts)
+
+      if (opts.addViewToRouter) {
+        addNewView.addImports(api, opts)
         addNewView.addPathToRouter(api, opts)
       }
     }

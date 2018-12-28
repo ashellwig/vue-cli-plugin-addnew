@@ -15,6 +15,12 @@ function updateFile (api, file, callback) {
   })
 }
 
+function getRouterFile (api, opts) {
+  const routerFile = (api.resolve('src/router.js')) ? 'src/router.js' : ''
+  return routerFile
+}
+
 module.exports = {
-  updateFile
+  updateFile,
+  getRouterFile
 }
