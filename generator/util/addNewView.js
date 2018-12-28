@@ -15,11 +15,12 @@ function renderFiles (api, opts) {
 function addImports (api, opts) {
   const viewName = opts.viewName
   const viewTarget = `./views/${viewName}.vue`
+  const routerPath = helpers.getRouterFile(api, opts)
 
-  helpers.updateFile(api, api.entryFile, lines => {
-    const lastImportIndex = lines.findIndex(line => line.match(/^import Vue/))
+  helpers.updateFile(api, routerPath, lines => {
+    const lastImportIndex = lines.findIndex(line => line.match(/^import/))
 
-    lines.splice(lastImportIndex + 1, 0, `import ${viewName} from '${viewTarget}.vue'`)
+    lines.splice(lastImportIndex + 1, 0, `import ${viewName} from '${viewTarget}'`)
 
     return lines
   })
@@ -27,27 +28,14 @@ function addImports (api, opts) {
 
 function addPathToRouter (api, opts) {
   const viewName = opts.viewName
-  const viewPath = opts.path
+  const routerPath = helpers.getRouterFile(api, opts)
+  const replaceRegex = `  routes: [{\n    name: '${viewName}',\n    path: '',\n    component: ${viewName}\n  },`
 
-  const fs = require('fs')
-  const routerPath = api.resolve('./src/router.js')
-  opts.router = fs.existsSync(routerPath)
+  helpers.updateFile(api, routerPath, lines => {
+    const lastRoute = lines.findIndex(line => line.match(/routes: \[\{/))
 
-  if (opts.router) {
-    helpers.updateFile(api, routerPath, lines => {
-      const lastImportIndex = lines.findIndex(line => line.match(/^import/))
-      const lastRoute = lines.findIndex(line => line.match(/^routes: \[/))
-
-      lines.splice(lastImportIndex + 1, 0, `
-      const ${viewName}Route = {\n
-        \tpath: ${viewPath},\n
-        \tname: ${viewName},\n
-        \tcomponent: viewName\n
-      }`)
-
-      lines.splice(lastRoute + 1, 0, `${viewName}Route`)
-    })
-  }
+    lines.replace(lastRoute, replaceRegex)
+  })
 }
 
 module.exports = {

@@ -31,6 +31,12 @@ module.exports = [{
   when: isView,
   default: 'NewView'
 }, {
+  name: 'addViewToRouter',
+  type: 'confirm',
+  message: 'Add this view to router?',
+  when: isView,
+  default: false
+}, {
   name: 'componentFiletype',
   type: 'list',
   choices: [{
