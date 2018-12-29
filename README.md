@@ -1,5 +1,7 @@
 # Vue CLI Plugin addnew
 
+[![npm version](https://badge.fury.io/js/vue-cli-plugin-addnew.svg)](https://badge.fury.io/js/vue-cli-plugin-addnew)
+
 ## Installation
 
 ```bash
