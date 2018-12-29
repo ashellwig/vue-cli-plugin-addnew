@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-addnew",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Adds [component || view] to project",
   "main": "index.js",
   "author": "Ashton S. Hellwig <ahellwig.dev@gmail.com>",
