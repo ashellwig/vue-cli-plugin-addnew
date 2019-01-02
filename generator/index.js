@@ -1,6 +1,6 @@
 module.exports = (api, opts) => {
-  const addNewComponent = require('./util/addNewComponent')
-  const addNewView = require('./util/addNewView')
+  const addNewComponent = require('./lib/addNewComponent')
+  const addNewView = require('./lib/addNewView')
 
   if (opts.action === 'addNewComponent') {
     addNewComponent.renderFiles(api, opts)
